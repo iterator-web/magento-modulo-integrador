@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Iterator_Integrador>
+            <version>1.0.0</version>
+        </Iterator_Integrador>
+    </modules>
+    
+    <global>
+        <models>
+            <integrador>
+                <class>Iterator_Integrador_Model</class>
+            </integrador>
+        </models>
+    </global>
+</config>

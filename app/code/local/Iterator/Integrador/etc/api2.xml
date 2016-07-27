@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <api2>
+        <resource_groups>
+            <iterator_integrador translate="title" module="Iterator_Integrador">
+                <title>Integrador ITERATOR</title>
+                <sort_order>9999</sort_order>
+            </iterator_integrador>
+        </resource_groups>
+        <resources>
+        </resources>
+    </api2>
+</config>
