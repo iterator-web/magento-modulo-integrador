@@ -8,6 +8,47 @@
             </iterator_integrador>
         </resource_groups>
         <resources>
+            <integrador_atributo translate="title" module="Iterator_Integrador">
+                <group>iterator_integrador</group>
+                <model>integrador/api2_atributo</model>
+                <working_model>catalog/attributes</working_model>
+                <title>Atributos</title>
+                <sort_order>20</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                </privileges>
+                <attributes module="Iterator_Integrador">
+                    <attribute_id>Attribute ID</attribute_id>
+                    <frontend_label>Frontend Label</frontend_label>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/integrador/atributos</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                    <route_entity>
+                        <route>/integrador/atributo/:attribute_id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <validators>
+                    <fields>
+                        <attribute_id>
+                            <required>1</required>
+                            <int translate="message" module="api2">
+                                <type>Int</type>
+                                <message>Por favor utilizar somente numeros no campo "attribute_id".</message>
+                            </int>
+                        </attribute_id>
+                    </fields>
+                </validators>
+                <versions>1</versions>
+            </integrador_atributo>
         </resources>
     </api2>
 </config>
