@@ -24,6 +24,7 @@
                 </privileges>
                 <attributes module="Iterator_Integrador">
                     <attribute_id>Attribute ID</attribute_id>
+                    <attribute_code>Attribute Code</attribute_code>
                     <frontend_label>Frontend Label</frontend_label>
                 </attributes>
                 <routes>
@@ -40,7 +41,7 @@
                     <fields>
                         <attribute_id>
                             <required>1</required>
-                            <int translate="message" module="api2">
+                            <int translate="message" module="Iterator_Integrador">
                                 <type>Int</type>
                                 <message>Por favor utilizar somente numeros no campo "attribute_id".</message>
                             </int>
@@ -49,6 +50,32 @@
                 </validators>
                 <versions>1</versions>
             </integrador_atributo>
+            <integrador_atributo_opcao translate="title" module="Iterator_Integrador">
+                <group>iterator_integrador</group>
+                <model>integrador/api2_atributo_opcao</model>
+                <working_model>catalog/attributes</working_model>
+                <title><![CDATA[Atributos Op&ccedil;&otilde;es]]></title>
+                <sort_order>30</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                </privileges>
+                <attributes module="Iterator_Integrador">
+                    <label>Label</label>
+                    <value>Value</value>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/integrador/atributo/:attribute_code/opcoes</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </integrador_atributo_opcao>
         </resources>
     </api2>
 </config>
