@@ -8,6 +8,44 @@
             </iterator_integrador>
         </resource_groups>
         <resources>
+            <integrador_produto_configurable translate="title" module="Iterator_Integrador">
+                <group>iterator_integrador</group>
+                <model>integrador/api2_produto_configurable</model>
+                <working_model>catalog/product</working_model>
+                <title>Produtos Configurables</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <admin>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                </privileges>
+                <attributes module="Iterator_Integrador">
+                    <attribute_id>Attribute ID</attribute_id>
+                    <attribute_code>Attribute Code</attribute_code>
+                    <frontend_label>Frontend Label</frontend_label>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/integrador/produto/:product_id/configurable/atributos</route>
+                        <action_type>collection</action_type>
+                    </route_entity>
+                </routes>
+                <validators>
+                    <fields>
+                        <product_id>
+                            <required>1</required>
+                            <int translate="message" module="Iterator_Integrador">
+                                <type>Int</type>
+                                <message>Por favor utilizar somente numeros no campo "product_id".</message>
+                            </int>
+                        </product_id>
+                    </fields>
+                </validators>
+                <versions>1</versions>
+            </integrador_produto_configurable>
             <integrador_atributo translate="title" module="Iterator_Integrador">
                 <group>iterator_integrador</group>
                 <model>integrador/api2_atributo</model>
