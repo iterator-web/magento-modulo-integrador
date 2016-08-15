@@ -31,6 +31,32 @@
 class Iterator_Integrador_Model_Api2_Produto_Configurable_Rest_Admin_V1 extends Mage_Catalog_Model_Api2_Product_Rest {
     
     /**
+     * Busca código passado por parametro no SKU dos produtos cadastrados e retorna a opção encontrada.
+     *
+     * @throws Mage_Api2_Exception
+     * @return array
+     */
+    protected function _retrieve() {
+        $sku = $this->getRequest()->getParam('sku');
+        /** @var $collection Mage_Catalog_Model_Resource_Product_Collection */
+        $collection = Mage::getResourceModel('catalog/product_collection');
+        $store = $this->_getStore();
+        $collection->setStoreId($store->getId());
+        $collection->addAttributeToSelect(array_keys(
+            $this->getAvailableAttributes($this->getUserType(), Mage_Api2_Model_Resource::OPERATION_ATTRIBUTE_READ)
+        ));
+        $collection->addFieldToFilter('sku', array('like'=>'%'.$sku.'%'));
+        $this->_applyCategoryFilter($collection);
+        $this->_applyCollectionModifiers($collection);
+        $product = $collection->load()->getFirstItem();
+        if(!$product->getId()) {
+            $this->_critical('Product not found', Mage_Api2_Model_Server::HTTP_NOT_FOUND);
+        } else {
+            return $product;
+        }
+    }
+    
+    /**
      * Retorna lista com todos os atributos disponíveis para o produto configurable indicado.
      *
      * @throws Mage_Api2_Exception

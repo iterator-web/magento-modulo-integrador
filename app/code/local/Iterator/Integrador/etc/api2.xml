@@ -28,9 +28,13 @@
                     <frontend_label>Frontend Label</frontend_label>
                 </attributes>
                 <routes>
-                    <route_entity>
+                    <route_collection>
                         <route>/integrador/produto/:product_id/configurable/atributos</route>
                         <action_type>collection</action_type>
+                    </route_collection>
+                    <route_entity>
+                        <route>/integrador/produto/:sku/configurable</route>
+                        <action_type>entity</action_type>
                     </route_entity>
                 </routes>
                 <validators>
