@@ -31,7 +31,7 @@
 class Iterator_Integrador_Model_Api2_Atributo_Rest_Admin_V1 extends Mage_Catalog_Model_Api2_Product_Rest {
     
     /**
-     * Busca o produto o atributo a partir do ID passado por parametro.
+     * Retorna o atributo a partir do ID passado por parametro.
      *
      * @throws Mage_Api2_Exception
      * @return array
