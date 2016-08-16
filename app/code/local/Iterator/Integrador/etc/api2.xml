@@ -115,6 +115,10 @@
                         <route>/integrador/atributo/:attribute_code/opcoes</route>
                         <action_type>collection</action_type>
                     </route_collection>
+                    <route_entity>
+                        <route>/integrador/atributo/:attribute_code/opcao/:label</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
                 </routes>
                 <versions>1</versions>
             </integrador_atributo_opcao>

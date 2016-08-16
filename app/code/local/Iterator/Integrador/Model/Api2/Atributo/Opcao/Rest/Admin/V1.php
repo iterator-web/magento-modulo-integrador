@@ -61,6 +61,33 @@ class Iterator_Integrador_Model_Api2_Atributo_Opcao_Rest_Admin_V1 extends Mage_C
     }
     
     /**
+     * Retorna o id da opção do atributo, a partir do code do atributo e do label da opção do atributo, passados por parametro.
+     *
+     * @throws Mage_Api2_Exception
+     * @return array
+     */
+    protected function _retrieve() {
+        $attributeCode = $this->getRequest()->getParam('attribute_code');
+        $label = html_entity_decode(str_replace('%20', ' ', $this->getRequest()->getParam('label'))); // Converte os caracteres especiais do html em texto e substitui os caracteres %20 por espaços em branco.
+        $result = array();
+        $_product = Mage::getModel('catalog/product');
+        $attr = $_product->getResource()->getAttribute($attributeCode);
+        if ($attr->usesSource()) {
+            $optionId = $attr->getSource()->getOptionId($label);
+            if($optionId) {
+                $result = array(
+                    'value' => $optionId,
+                    'label' => $label
+                );
+            }
+        }
+        if (empty($result)) {
+            $this->_critical('Attribute option not found', Mage_Api2_Model_Server::HTTP_NOT_FOUND);
+        }
+        return $result;
+    }
+    
+    /**
      * Retorna lista com todos as opções disponíveis para o atributo indicado.
      *
      * @throws Mage_Api2_Exception
