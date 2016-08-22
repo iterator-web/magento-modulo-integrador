@@ -54,6 +54,7 @@
                 <group>iterator_integrador</group>
                 <model>integrador/api2_produto_pedido</model>
                 <working_model>catalog/product</working_model>
+                <title>Produtos em Pedidos</title>
                 <sort_order>20</sort_order>
                 <privileges>
                     <admin>
