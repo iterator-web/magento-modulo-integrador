@@ -74,12 +74,58 @@
                 </routes>
                 <versions>1</versions>
             </integrador_produto_pedido>
+            <integrador_produto_estoque translate="title" module="Iterator_Integrador">
+                <group>iterator_integrador</group>
+                <model>integrador/api2_produto_estoque</model>
+                <working_model>cataloginventory/stock_item</working_model>
+                <title>Produtos Estoques</title>
+                <sort_order>30</sort_order>
+                <privileges>
+                    <admin>
+                        <retrieve>1</retrieve>
+                    </admin>
+                </privileges>
+                <attributes translate="item_id product_id stock_id qty min_qty use_config_min_qty is_qty_decimal backorders use_config_backorders min_sale_qty use_config_min_sale_qty max_sale_qty use_config_max_sale_qty is_in_stock low_stock_date notify_stock_qty use_config_notify_stock_qty manage_stock use_config_manage_stock stock_status_changed_auto use_config_qty_increments qty_increments use_config_enable_qty_inc enable_qty_increments is_decimal_divided" module="api2">
+                    <item_id>Item ID</item_id>
+                    <product_id>Product ID</product_id>
+                    <stock_id>Stock ID</stock_id>
+                    <qty>Qty</qty>
+                    <min_qty>Qty for Item's Status to Become Out of Stock</min_qty>
+                    <use_config_min_qty>Use Config Settings for Qty for Item's Status to Become Out of Stock</use_config_min_qty>
+                    <is_qty_decimal>Qty Uses Decimals</is_qty_decimal>
+                    <backorders>Backorders</backorders>
+                    <use_config_backorders>Use Config Settings for Backorders</use_config_backorders>
+                    <min_sale_qty>Minimum Qty Allowed in Shopping Cart</min_sale_qty>
+                    <use_config_min_sale_qty>Use Config Settings for Minimum Qty Allowed in Shopping Cart</use_config_min_sale_qty>
+                    <max_sale_qty>Maximum Qty Allowed in Shopping Cart</max_sale_qty>
+                    <use_config_max_sale_qty>Use Config Settings for Maximum Qty Allowed in Shopping Cart</use_config_max_sale_qty>
+                    <is_in_stock>Stock Availability</is_in_stock>
+                    <low_stock_date>Low Stock Date</low_stock_date>
+                    <notify_stock_qty>Notify for Quantity Below</notify_stock_qty>
+                    <use_config_notify_stock_qty>Use Config Settings for Notify for Quantity Below</use_config_notify_stock_qty>
+                    <manage_stock>Manage Stock</manage_stock>
+                    <use_config_manage_stock>Use Config Settings for Manage Stock</use_config_manage_stock>
+                    <stock_status_changed_auto>Automatically Return Credit Memo Item to Stock</stock_status_changed_auto>
+                    <use_config_qty_increments>Use Config Settings for Qty Increments</use_config_qty_increments>
+                    <qty_increments>Qty Increments</qty_increments>
+                    <use_config_enable_qty_inc>Use Config Settings for Enable Qty Increments</use_config_enable_qty_inc>
+                    <enable_qty_increments>Enable Qty Increments</enable_qty_increments>
+                    <is_decimal_divided>Can Be Divided into Multiple Boxes for Shipping</is_decimal_divided>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/integrador/produto/:id/estoque</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </integrador_produto_estoque>
             <integrador_atributo translate="title" module="Iterator_Integrador">
                 <group>iterator_integrador</group>
                 <model>integrador/api2_atributo</model>
                 <working_model>catalog/attributes</working_model>
                 <title>Atributos</title>
-                <sort_order>30</sort_order>
+                <sort_order>40</sort_order>
                 <privileges>
                     <admin>
                         <create>1</create>
@@ -121,7 +167,7 @@
                 <model>integrador/api2_atributo_opcao</model>
                 <working_model>catalog/attributes</working_model>
                 <title><![CDATA[Atributos Op&ccedil;&otilde;es]]></title>
-                <sort_order>40</sort_order>
+                <sort_order>50</sort_order>
                 <privileges>
                     <admin>
                         <create>1</create>
