@@ -26,14 +26,16 @@
                     <attribute_id>Attribute ID</attribute_id>
                     <attribute_code>Attribute Code</attribute_code>
                     <frontend_label>Frontend Label</frontend_label>
+                    <associated_skus>Associated SKUs</associated_skus>
+                    <price_changes>Price Changes</price_changes>
                 </attributes>
                 <routes>
                     <route_collection>
-                        <route>/integrador/produto/:product_id/configurable/atributos</route>
+                        <route>/integrador/produto/:id/configurable/atributos</route>
                         <action_type>collection</action_type>
                     </route_collection>
                     <route_entity>
-                        <route>/integrador/produto/:sku/configurable</route>
+                        <route>/integrador/produto/:id/configurable</route>
                         <action_type>entity</action_type>
                     </route_entity>
                 </routes>
