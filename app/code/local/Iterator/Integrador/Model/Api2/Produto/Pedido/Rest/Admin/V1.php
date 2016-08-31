@@ -47,7 +47,9 @@ class Iterator_Integrador_Model_Api2_Produto_Pedido_Rest_Admin_V1 extends Mage_C
         $orderItemCollection->addFieldToFilter('order.status', array('eq' => 'pending'));
         $orderItemCollection->addFieldToFilter('main_table.sku', array('eq' => $sku));
         foreach($orderItemCollection as $orderItem) {
-            $totalReservado += (int)$orderItem->getQtyOrdered();
+            if($orderItem->getProductType() == 'simple') {
+                $totalReservado += (int)$orderItem->getQtyOrdered();
+            }
         }
         
         return $totalReservado;
