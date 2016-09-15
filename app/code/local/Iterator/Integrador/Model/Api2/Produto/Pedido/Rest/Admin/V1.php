@@ -44,7 +44,8 @@ class Iterator_Integrador_Model_Api2_Produto_Pedido_Rest_Admin_V1 extends Mage_C
                 ->joinLeft(array('order' => $orderItemCollection->getTable('sales/order')),
                 'main_table.order_id = order.entity_id', 
                 array('prod_id' => 'main_table.product_id', 'order_date' => 'order.created_at', 'increment_id' => 'order.increment_id', 'status' => 'order.status'));
-        $orderItemCollection->addFieldToFilter('order.status', array('eq' => 'pending'));
+        $orderItemCollection->addFieldToFilter('order.status', array('in' => array('pending','processing')));
+        $orderItemCollection->addFieldToFilter('order.ext_order_id', array('null' => true)); // Pedido ainda não foi transformado em venda no ERP.
         $orderItemCollection->addFieldToFilter('main_table.sku', array('eq' => $sku));
         foreach($orderItemCollection as $orderItem) {
             if($orderItem->getProductType() == 'simple') {
